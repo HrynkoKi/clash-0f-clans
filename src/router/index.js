@@ -15,9 +15,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "About" */ '@/pages/About.vue')
   },
   {
-    path: '/:CatchAll(.*)*',
+    path: `${ROOT_PATH}characters/:aliasItem`,
+    name: 'aliasItem',
     component: () =>
-      import(/* webpackChunkName: "NotFound" */ '@/pages/NotFound.vue')
+      import(
+        /* webpackChunkName: "CharacterItem" */ '@/pages/CharacterItem.vue'
+      )
+  },
+  {
+    path: '/:CatchAll(.*)*',
+    name: 'notFound',
+    component: () =>
+      import(/* webpackChunkName: "NotFound" */ '@/pages/NotFound.vue'),
+    redirect: '/404'
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/pages/NotFound.vue')
   }
 ];
 

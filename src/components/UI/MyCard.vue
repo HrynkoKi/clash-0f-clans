@@ -7,7 +7,13 @@
     <span class="card-name">LVL: {{ name }}</span>
     <h2 class="card-title">{{ title }}</h2>
     <div class="card-body">
-      <slot></slot>
+      <slot name="body"></slot>
+
+      <router-link class="link" v-if="link" :to="`/characters/${link}`">
+        See more
+      </router-link>
+
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>
@@ -25,6 +31,9 @@ export default {
       required: true
     },
     img: {
+      type: String
+    },
+    link: {
       type: String
     }
   }
