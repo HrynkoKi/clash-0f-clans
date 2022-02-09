@@ -1,0 +1,32 @@
+<template>
+  <div class="card">
+    <div v-if="img" class="card-img__wrapper">
+      <img :src="img" :alt="title" class="card-img" />
+    </div>
+
+    <span class="card-name">LVL: {{ name }}</span>
+    <h2 class="card-title">{{ title }}</h2>
+    <div class="card-body">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MyCard',
+  props: {
+    name: {
+      type: Number || String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    img: {
+      type: String
+    }
+  }
+};
+</script>

@@ -2,5 +2,6 @@ module.exports = {
   publicPath:
     process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/',
   productionSourceMap: false,
-  assetsDir: 'assets'
+  assetsDir: 'assets',
+  filenameHashing: false
 };
